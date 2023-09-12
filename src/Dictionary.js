@@ -6,7 +6,7 @@ export default function Dictionary() {
   return (
     <div className="Dictionary">
       <img src={imageBackground} className="imageBackground img-fluid" alt="" />
-      <header className="p-4">
+      <header className="p-3">
         <h1 className="text-center">Dictionary</h1>
         <h2>What word would you like to look up</h2>
       </header>
