@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Dictionary.css";
 import imageBackground from "./dictionary-bg.jpg";
 
 export default function Dictionary() {
+  let [keyword, setKeyword] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    alert(`Searching for ${keyword} definition`);
+  }
+
+  function handleKeywordChange(event) {
+    setKeyword(event.target.value);
+  }
+
   return (
     <div className="Dictionary">
       <img src={imageBackground} className="imageBackground img-fluid" alt="" />
@@ -11,12 +23,13 @@ export default function Dictionary() {
         <h2>What word would you like to look up</h2>
       </header>
       <main>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             type="search"
             placeholder="Enter word.."
             className="col-6"
             autoFocus={true}
+            onChange={handleKeywordChange}
           />
           <button type="submit">🔍</button>
         </form>
