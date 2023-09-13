@@ -6,9 +6,15 @@ import imageBackground from "./dictionary-bg.jpg";
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
 
-  function handleSubmit(event) {
+  function handleResponse(response) {
+    console.log(response.data);
+  }
+
+  function search(event) {
     event.preventDefault();
-    alert(`Searching for ${keyword} definition`);
+    let apiKey = "dc34aa4b26o1f14aa51aea20t25d63c3";
+    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
+    axios.get(apiUrl).then(handleResponse);
   }
 
   function handleKeywordChange(event) {
@@ -23,7 +29,7 @@ export default function Dictionary() {
         <h2>What word would you like to look up</h2>
       </header>
       <main>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={search}>
           <input
             type="search"
             placeholder="Enter word.."
