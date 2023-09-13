@@ -5,9 +5,18 @@ import imageBackground from "./dictionary-bg.jpg";
 
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
+  let [dictionary, setDictionary] = useState({ ready: false });
 
   function handleResponse(response) {
     console.log(response.data);
+    setDictionary({
+      ready: true,
+      name: response.data.name,
+      phonetic: response.data.phonetic,
+      partOfSpeach: response.data.meanings[0].partOfSpeach,
+      definition: response.data.definition,
+      synonyms: response.data.meanings[0].synonyms,
+    });
   }
 
   function search(event) {
@@ -15,6 +24,7 @@ export default function Dictionary() {
     let apiKey = "dc34aa4b26o1f14aa51aea20t25d63c3";
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
+    console.log(apiUrl);
   }
 
   function handleKeywordChange(event) {
@@ -27,9 +37,7 @@ export default function Dictionary() {
       <header className="p-3">
         <h1 className="text-center">Dictionary</h1>
         <h2>What word would you like to look up</h2>
-      </header>
-      <main>
-        <form onSubmit={search}>
+        <form onSubmit={search} className="mt-4">
           <input
             type="search"
             placeholder="Enter word.."
@@ -39,7 +47,8 @@ export default function Dictionary() {
           />
           <button type="submit">🔍</button>
         </form>
-      </main>
+      </header>
+      <main></main>
     </div>
   );
 }
