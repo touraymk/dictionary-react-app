@@ -13,3 +13,21 @@
 .App footer a {
   color: rgba(113, 58, 18, 0.9);
 }
+
+@media (max-width: 600px) {
+  .App {
+    padding: 0;
+  }
+
+  .App .container {
+    padding: 0;
+  }
+
+  .App footer {
+    font-size: 8px;
+  }
+
+  .App .emojiColor {
+    font-size: 12px;
+  }
+}

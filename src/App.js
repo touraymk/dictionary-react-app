@@ -4,7 +4,7 @@ import Dictionary from "./Dictionary";
 function App() {
   return (
     <div className="App">
-      <div className="container mt-4">
+      <div className="container">
         <Dictionary keyword={"serendipity"} />
       </div>
       <footer className="text-center">
