@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Dictionary.css";
 import imageBackground from "./dictionary-bg.jpg";
+import DictionaryExplanation from "./DictionaryExplanation";
 
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
@@ -48,7 +49,9 @@ export default function Dictionary() {
           <button type="submit">🔍</button>
         </form>
       </header>
-      <main></main>
+      <main>
+        <DictionaryExplanation data={dictionary} />
+      </main>
     </div>
   );
 }
