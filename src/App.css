@@ -1,0 +1,15 @@
+.App footer {
+  font-weight: 800;
+  filter: sepia(20%);
+  font-size: 14px;
+  color: rgba(113, 58, 18, 0.9);
+}
+
+.App .emojiColor {
+  color: rgb(210, 71, 117);
+  font-size: 20px;
+}
+
+.App footer a {
+  color: rgba(113, 58, 18, 0.9);
+}

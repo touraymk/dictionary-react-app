@@ -1,6 +1,17 @@
 import React from "react";
-import "./Dictionary.css";
+import "./DictionaryExplanation.css";
 
 export default function DictionaryExplanation(props) {
-  return <h3>Hello from DictionaryExplanation</h3>;
+  return (
+    <div
+      className="DictionaryExplanation p-4"
+      style={{ textTransform: "capitalize" }}
+    >
+      <h3>{props.data.word}</h3>
+      <h4>/{props.data.phonetic}/</h4>
+      <p>{props.data.partOfSpeech}</p>
+      <p>{props.data.definition}</p>
+      <p>{props.data.synonyms}</p>
+    </div>
+  );
 }
